@@ -14,6 +14,8 @@
 		8460C48A1B412BB600A8A177 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8460C4891B412BB600A8A177 /* Images.xcassets */; };
 		8460C48D1B412BB600A8A177 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8460C48B1B412BB600A8A177 /* LaunchScreen.xib */; };
 		8460C4991B412BB600A8A177 /* CycledViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8460C4981B412BB600A8A177 /* CycledViewTests.m */; };
+		847228A51B413E4A009599A2 /* CycledViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847228A41B413E4A009599A2 /* CycledViewController.m */; };
+		847228A81B413EAC009599A2 /* CycledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847228A71B413EAC009599A2 /* CycledView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		8460C4921B412BB600A8A177 /* CycledViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CycledViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8460C4971B412BB600A8A177 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8460C4981B412BB600A8A177 /* CycledViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CycledViewTests.m; sourceTree = "<group>"; };
+		847228A31B413E4A009599A2 /* CycledViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CycledViewController.h; sourceTree = "<group>"; };
+		847228A41B413E4A009599A2 /* CycledViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CycledViewController.m; sourceTree = "<group>"; };
+		847228A61B413EAC009599A2 /* CycledView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CycledView.h; sourceTree = "<group>"; };
+		847228A71B413EAC009599A2 /* CycledView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CycledView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,7 @@
 		8460C4701B412BB600A8A177 = {
 			isa = PBXGroup;
 			children = (
+				847228A21B413E26009599A2 /* CycledViewController */,
 				8460C47B1B412BB600A8A177 /* CycledView */,
 				8460C4951B412BB600A8A177 /* CycledViewTests */,
 				8460C47A1B412BB600A8A177 /* Products */,
@@ -117,6 +124,17 @@
 				8460C4971B412BB600A8A177 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		847228A21B413E26009599A2 /* CycledViewController */ = {
+			isa = PBXGroup;
+			children = (
+				847228A31B413E4A009599A2 /* CycledViewController.h */,
+				847228A41B413E4A009599A2 /* CycledViewController.m */,
+				847228A61B413EAC009599A2 /* CycledView.h */,
+				847228A71B413EAC009599A2 /* CycledView.m */,
+			);
+			name = CycledViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,8 +237,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847228A51B413E4A009599A2 /* CycledViewController.m in Sources */,
 				8460C4851B412BB600A8A177 /* ViewController.m in Sources */,
 				8460C4821B412BB600A8A177 /* AppDelegate.m in Sources */,
+				847228A81B413EAC009599A2 /* CycledView.m in Sources */,
 				8460C47F1B412BB600A8A177 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,6 +438,7 @@
 				8460C49E1B412BB600A8A177 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8460C49F1B412BB600A8A177 /* Build configuration list for PBXNativeTarget "CycledViewTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +447,7 @@
 				8460C4A11B412BB600A8A177 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

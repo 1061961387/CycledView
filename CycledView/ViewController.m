@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "CycledViewController.h"
 
 @interface ViewController ()
 
@@ -17,6 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    CycledViewController *view = [[CycledViewController alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    view.backgroundColor = [UIColor purpleColor];
+    [self.view addSubview:view];
+    self.view.backgroundColor = [UIColor darkGrayColor];
+    
 }
 
 - (void)didReceiveMemoryWarning {
