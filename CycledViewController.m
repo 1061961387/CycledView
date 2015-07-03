@@ -72,42 +72,34 @@
     
 }
 -(void)reloadViews{
-    CGPoint center = CGPointZero;
     for (NSInteger itemIndex = 0; itemIndex < numberOfItems; itemIndex++) {
-        //        center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
         CycledView *item = [itemViews objectAtIndex:itemIndex];
         if (itemIndex != 0) {
-            center = [[centers objectAtIndex:itemIndex] CGPointValue];
-            [UIView beginAnimations:nil context:nil];
-            [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-            [UIView setAnimationDelay:0.3];
-            item.center = center;
-            item.transform = CGAffineTransformScale(CGAffineTransformIdentity, kScaleFactor+0.1*itemIndex,kScaleFactor+0.1*itemIndex);
-            item.controller = self;
-            [UIView commitAnimations];
+            CGPoint center = [[centers objectAtIndex:itemIndex] CGPointValue];
+            [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                item.center = center;
+                item.transform = CGAffineTransformScale(CGAffineTransformIdentity, kScaleFactor+0.1*itemIndex,kScaleFactor+0.1*itemIndex);
+                item.controller = self;
+            } completion:^(BOOL finished) {
+                if (finished) {
+                    if (itemIndex == numberOfItems - 1) {
+                        item.userInteractionEnabled = YES;
+                    }
+                }
+            }];
         }else{
-            [UIView beginAnimations:nil context:nil];
-            [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-            [UIView setAnimationDelay:0.1];
-            [UIView setAnimationDelegate:self];
-            [UIView setAnimationDidStopSelector:@selector(didStop)];
-            center = [[centers objectAtIndex:1] CGPointValue];
-            item.center = center;
-            item.transform = CGAffineTransformScale(CGAffineTransformIdentity, kScaleFactor+0.1,kScaleFactor+0.1);
-            [UIView commitAnimations];
-        }
-        item.userInteractionEnabled = NO;
-        if (itemIndex==numberOfItems-1) {
-            item.userInteractionEnabled = YES;
+            [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                CGPoint aCenter = [[centers objectAtIndex:1] CGPointValue];
+                item.center = aCenter;
+                item.transform = CGAffineTransformScale(CGAffineTransformIdentity, kScaleFactor+0.1,kScaleFactor+0.1);
+                item.controller = self;
+            } completion:^(BOOL finished) {
+                CycledView *view = [itemViews objectAtIndex:0];
+                view.hidden = NO;
+            }];
         }
         [self addSubview:item];
     }
-}
-
-- (void)didStop
-{
-    CycledView *view = [itemViews objectAtIndex:0];
-    view.hidden = NO;
 }
 
 -(void)slideLeft{
